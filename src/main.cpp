@@ -1,6 +1,6 @@
 #include <iostream>
 #include "pch.h"
-#include "automata.h"
+#include "Automata.h"
 
 int main(int argc, char* argv[]) {
 	CoffeeMachine coffeemachine = CoffeeMachine();

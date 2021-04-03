@@ -1,5 +1,5 @@
 ﻿#include "pch.h"
-#include "automata.h"
+#include "Automata.h"
 
 std::string product_to_str(Product product) {
 	switch (product)

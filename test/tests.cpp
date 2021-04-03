@@ -7,7 +7,7 @@ TEST(task, test1)
     coffee.coin(20);
     coffee.choise(1);
     States result = coffee.getState();
-    EXPECT_EQ(2, result);
+    EXPECT_EQ(WAIT, result);
 }
 
 TEST(task, test2)
@@ -16,15 +16,15 @@ TEST(task, test2)
     coffee.on();
     coffee.choise(1);
     States result = coffee.getState();
-    EXPECT_EQ(3, result);
+    EXPECT_EQ(WAIT, result);
 }
 
 TEST(task, test3)
 {
     Automata coffee = Automata();
     coffee.on();
-    coffee.coin(30);
-    coffee.choise(2);
-    int result = coffee.finish();
+    coffee.coin(120);
+    coffee.choice(1);
+    int result = coffee.getState();
     EXPECT_EQ(1, result);
 }

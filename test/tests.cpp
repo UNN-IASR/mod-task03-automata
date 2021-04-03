@@ -12,7 +12,7 @@ TEST(task, test1)
 
 TEST(task, test2)
 {
-    Automata coffeeA= Automata();
+    Automata coffee= Automata();
     coffee.on();
     coffee.off();
     int result = coffee.getState();

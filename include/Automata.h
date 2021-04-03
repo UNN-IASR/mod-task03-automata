@@ -14,7 +14,7 @@ private:
 	int cash;
 	int ch;
 	string menu[4] = { "Latte" ,"Cappuccino","Espresso","Americano" };
-	int prices[4] = { 80,100,120,140 };
+	int prices[4] = {80, 100, 120, 140};
 	State state;
 	void cook();
 	void check();
@@ -28,5 +28,5 @@ public:
 	State getState();
 	void choice(int ch);
 	int cancel();
-	string finish();
+	void finish();
 };

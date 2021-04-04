@@ -1,5 +1,6 @@
 #include <vector>
-
+#include <map>
+using namespace std;
 enum class State {
 	OFF,
 	WAIT,
@@ -31,10 +32,10 @@ enum class Product {
 //Finite State Machine implementation
 template<typename State, typename Act>
 class Automata {
-	std::map<std::pair<State, Act>, State> transitions;
+	map<pair<State, Act>, State> transitions;
 	State current_state;
 public:
-	Automata(std::map<std::pair<State, Act>, State> transitions, State start_state);
+	Automata(map<pair<State, Act>, State> transitions, State start_state);
 	Automata(){};
 	void do_transition(Act act);
 	State getState();
@@ -51,12 +52,12 @@ public:
 	void cook();
 	void finish();
 	State getState();
-	CoffeeMachine(std::map<Product, int> menu);
+	CoffeeMachine(map<Product, int> menu);
 	//standart menu
 	CoffeeMachine();
 private:
 	int cash;
-	std::map<Product, int> menu;
+	map<Product, int> menu;
 	Product chosen_product;
 	Automata<State, Act> engine;
 	void create_engine();

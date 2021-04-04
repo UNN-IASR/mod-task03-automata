@@ -1,5 +1,4 @@
 #include <iostream>
-#include "pch.h"
 #include "Automata.h"
 
 int main(int argc, char* argv[]) {

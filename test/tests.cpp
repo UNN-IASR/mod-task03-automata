@@ -1,4 +1,4 @@
-#include "pch.h"
+#include <gtest/gtest.h>
 #include "Automata.h"
 
 //i would add some tests especially for automata but

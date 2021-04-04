@@ -13,7 +13,7 @@ class Automata {
 	private:
 		int cash;
 		std::vector<std::string> menu{"Americano","Cappuccino","Latte","Espresso"};
-		std::vector<int> prices {80,100,120,90};
+		std::vector<int> prices {100,90,120,200};
 		States state;
 		bool check(int choice);
 		void cook();

@@ -18,6 +18,7 @@ private:
 	State state;
 	void cook();
 	void check();
+	
 
 public:
 	Automata();

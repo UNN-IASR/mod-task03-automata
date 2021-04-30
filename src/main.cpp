@@ -14,4 +14,5 @@ int main()
     aut.choice(3);
     change = aut.cancel();
     aut.off();
+    
 }

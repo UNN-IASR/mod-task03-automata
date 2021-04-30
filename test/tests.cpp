@@ -67,4 +67,5 @@ TEST(task3, test7) {
     a.coin(150);
     int result = a.choice(1);
     EXPECT_EQ(0, result);
+    
 }

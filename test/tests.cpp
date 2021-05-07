@@ -1,8 +1,6 @@
 #include <gtest/gtest.h>
 #include "Automata.h"
 
-include <gtest/gtest.h>
-#include "Automata.h"
 TEST(task1, test1) {
     Automata a = Automata();
     a.on();

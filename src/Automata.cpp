@@ -1,87 +1,96 @@
 #include "Automata.h"
+#include <string>
+using namespace std;
 
-
-Automata::Automata() {
-	state = OFF;
-	cash = 0;
-	ch = -1;
-}
 void Automata::on()
 {
-	if (state == OFF) {
+	if (state == OFF)
+	{
 		state = WAIT;
+		cash = 0;
 	}
 }
 
-void Automata::off() {
+void Automata::off()
+{
 	if (state == WAIT)
 	{
 		state = OFF;
+		cash = 0;
 	}
 }
 
-int Automata::coin(int cash) {
-	if (state == WAIT || state == ACCEPT)
+void Automata::coin(int Money)
+{
+	if ((state == WAIT) || (state == ACCEPT))
 	{
-		this->cash += cash;
+		cash += Money;
 		state = ACCEPT;
-		return 0;
 	}
-	else return cash;
 }
 
-void Automata::choice(int ch) {
+const char** Automata::etMenu()
+{
+	return menu;
+}
+
+void Automata::choice(int nom)
+{
 	if (state == ACCEPT)
 	{
-		if (ch <= 4) {
-			this->ch = ch;
+		if (nom - 1 < 3)
+		{
 			state = CHECK;
-			check();
+			if (check(nom) == true)
+			{
+				cook();
+			}
+			else
+			{
+				cancel();
+			}
 		}
 	}
 }
 
-void Automata::check() {
-	if (state == CHECK) {
-		if (cash - prices[ch] >= 0)
-			cook();
-		else state = ACCEPT;
+bool Automata::check(int nom)
+{
+	if (state == CHECK)
+	{
+		if (cash >= prices[nom - 1])
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 }
 
-int Automata::cancel() {
-	if (state == ACCEPT || state == CHECK || state == WAIT)
+void Automata::cancel()
+{
+	if ((state == ACCEPT) || (state == CHECK))
 	{
 		state = WAIT;
-		int refund = cash;
 		cash = 0;
-		return refund;
 	}
-	else return 0;
 }
 
-void Automata::cook() {
-	if (state == CHECK) {
+void Automata::cook()
+{
+	if (state == CHECK)
+	{
 		state = COOK;
+		finish();
 	}
 }
 
-string Automata::finish() {
-	if (state == COOK) {
-		cash -= prices[ch];
+void Automata::finish()
+{
+	if (state == COOK)
+	{
 		state = WAIT;
-		string drink = menu[ch];
-		ch = -1;
-		return drink;
+		cash = 0;
 	}
-	return "";
-
-}
-
-string* Automata::etMenu() {
-	return menu;
-}
-
-Automata::State Automata::getState() {
-	return state;
 }

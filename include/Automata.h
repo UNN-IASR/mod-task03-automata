@@ -1,32 +1,31 @@
+#pragma once
 #include <string>
 using namespace std;
-class Automata {
 
+class Automata
+{
 private:
-	enum State
-	{
-		OFF,
-		WAIT,
-		ACCEPT,
-		CHECK,
-		COOK
-	};
-	int cash;
-	int ch;
-	string menu[4] = { "Latte" ,"Cappuccino","Espresso"};
-	int prices[4] = { 80,100,120 };
-	State state;
-	void cook();
-	void check();
-
+    enum State
+    {
+        OFF,
+        WAIT,
+        ACCEPT,
+        CHECK,
+        COOK
+    };
+    int cash = 0;
+    const char* menu[3] = { "Кофе","Чай","Горячий шоколад" };
+    int prices[3] = { 20, 10, 30 };
+    State state = OFF;
+    bool check(int nom);
+    void cook();
+    void finish();
 public:
-	Automata();
-	void on();
-	void off();
-	int coin(int cash);
-	string* etMenu();
-	State getState();
-	void choice(int ch);
-	int cancel();
-	string finish();
+    void on();
+    void off();
+    void coin(int Money);
+    const char** etMenu();
+    State getState() { return state; };
+    void choice(int nom);
+    void cancel();
 };

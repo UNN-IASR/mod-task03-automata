@@ -1,17 +1,19 @@
 #include "Automata.h"
 
+
 int main()
 {
-    Automata aut = Automata();
-    int change = 0;
-    aut.on();
-    aut.coin(80);
-    aut.choice(1);
-    change = aut.cancel();
-    aut.coin(100);
-    aut.choice(2);
-    aut.coin(120);
-    aut.choice(3);
-    change = aut.cancel();
-    aut.off();
+    Automata AVT = Automata();
+    AVT.on();
+    AVT.coin(10);
+    AVT.choice(1);
+    AVT.coin(50);
+    AVT.cancel();
+    AVT.coin(20);
+    AVT.choice(2);
+    AVT.coin(10);
+    AVT.coin(20);
+    AVT.choice(3);
+    AVT.off();
+    return 0;
 }

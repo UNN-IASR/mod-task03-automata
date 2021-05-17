@@ -1,0 +1,10 @@
+latte
+110
+coffe
+85
+chocolate
+90
+milk chocolate
+100
+hot milk
+70
